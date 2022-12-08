@@ -30,14 +30,27 @@ function validateInput(testInput) {
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     if(validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty") {
         alert("All fields are required!");
-        
     } else if(validateInput(pilot) === "Is a Number" || validateInput(copilot) === "Is a Number") {
         alert("Make sure to enter valid information for each field!");
     } else if(validateInput(fuelLevel) === "Is Not a Number" || validateInput(cargoLevel) === "Is Not a Number") {
         alert("Make sure to enter valid information for each field!");
     } else {
-        console.log("All fields are filled out correctly!");
-
+        list.style.visibility = "visible"
+        document.getElementById("pilotStatus").innerHTML = `Pilot ${pilot} is ready for launch`;
+        document.getElementById("copilotStatus").innerHTML = `Co-pilot ${copilot} is ready for launch`;
+        if(fuelLevel < 10000) {
+            document.getElementById("fuelStatus").innerHTML = "Fuel level too low for launch";
+            document.getElementById("launchStatus").innerHTML = "Shuttle not ready for launch";
+            document.getElementById("launchStatus").style.color = "red";
+        } else if(cargoLevel > 10000) {
+            document.getElementById("cargoStatus").innerHTML = "Cargo mass too high for launch";
+            document.getElementById("launchStatus").innerHTML = "Shuttle not ready for launch";
+            document.getElementById("launchStatus").style.color = "red";
+        } else {
+            document.getElementById("launchStatus").innerHTML = "Shuttle is ready for launch";
+            document.getElementById("launchStatus").style.color = "green";
+        }
+    
 }
 }
 
