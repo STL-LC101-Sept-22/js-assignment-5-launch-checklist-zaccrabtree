@@ -3,6 +3,8 @@
 window.addEventListener("load", function() {
       //need to add alert if any of the form fields are empty
     let form = document.querySelector("form");
+    let list = document.getElementById("faultyItems");
+    list.style.visibility = "hidden";
     form.addEventListener("submit", function(event) {
         
         let document = window.document;

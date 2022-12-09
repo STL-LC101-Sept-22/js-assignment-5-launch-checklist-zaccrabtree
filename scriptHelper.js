@@ -36,7 +36,7 @@ function validateInput(testInput) {
         if(isNaN(testInput) === false) {
             return "Is a Number";
         } else {
-            return "Is Not a Number";
+            return "Not a Number";
         }
 }
 
@@ -81,7 +81,7 @@ function pickPlanet(planetsReturned) {
     //should take in the array of planets as a parameter and return a single planet object randomly.
     let randomPlanet = planetsReturned[Math.floor(Math.random() * planetsReturned.length)];
     return randomPlanet;
-    
+
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;
