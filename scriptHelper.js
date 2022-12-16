@@ -67,15 +67,17 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 }
 
 async function myFetch() {
-    let planetsReturned;
-
-    planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then((response) => response.json());
+//fetch needs to be defined in the global scope for it to work
+    
+    let planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then((response) => 
+    response.json());
 
     return planetsReturned;
+
 }
 
 function pickPlanet(planetsReturned) {
-    //should take in the array of planets as a parameter and return a single planet object randomly.
+    //takes in the array of planets as a parameter and return a single planet object randomly.
     let randomPlanet = planetsReturned[Math.floor(Math.random() * planetsReturned.length)];
     return randomPlanet;
 
